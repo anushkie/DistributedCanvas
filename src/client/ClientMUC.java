@@ -79,7 +79,7 @@ public class ClientMUC {
 
 			// Online users
 			String printOnlineUsers = dis.readUTF();
-			System.out.println(" " + printOnlineUsers);
+			System.out.println(printOnlineUsers);
 			String[] splitString = printOnlineUsers.split("-");
 			for (int i = 0; i < splitString.length; i++) {
 				System.out.println("Users : " + splitString[i] + " ");
