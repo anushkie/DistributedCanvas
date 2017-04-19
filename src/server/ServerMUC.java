@@ -7,6 +7,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import user.UserMUC;
 
+/**
+ * 
+ * @author Anushka
+ *
+ */
+
 public class ServerMUC {
 
 	private boolean isRunning;

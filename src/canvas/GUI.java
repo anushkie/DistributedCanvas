@@ -15,6 +15,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author anushka
+ *
+ */
 public class GUI {
 
 	 private DataOutputStream dos;

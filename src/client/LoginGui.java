@@ -33,7 +33,7 @@ public class LoginGui {
 	
 	/**
 	 * Launch the application.
-	 * @wbp.parser.entryPoint
+	 * 
 	 */
 	public LoginGui(DataOutputStream dos, DataInputStream dis) {
 		this. dos = dos;
@@ -42,9 +42,7 @@ public class LoginGui {
 		
 	}
 	
-	/**
-	 * @wbp.parser.entryPoint
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			
@@ -108,7 +106,7 @@ public class LoginGui {
 		frame.getContentPane().add(btnNewButton_1);
 	
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("E:\\java2\\Multi User Canvas\\resources\\12345567.jpg"));
+		lblNewLabel_2.setIcon(new ImageIcon("12345567.jpg"));
 		lblNewLabel_2.setBounds(0, 0, 444, 272);
 		frame.getContentPane().add(lblNewLabel_2);
 		

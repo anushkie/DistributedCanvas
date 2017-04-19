@@ -19,6 +19,11 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
+/**
+ * 
+ * @author anushka
+ *
+ */
 public class LoginPanel extends JFrame {
 
 	private JPanel contentPane;
@@ -53,7 +58,7 @@ public class LoginPanel extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginPanel(DataOutputStream dos, DataInputStream dis) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\java2\\Multi User Canvas\\resources\\bkgrnd.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("bkgrnd.jpg"));
 		
 		this.dos = dos;
 		this.dis = dis;
@@ -88,9 +93,8 @@ public class LoginPanel extends JFrame {
 				  username =  textField.getText();
 			      System.out.println("USERNAME :" + username);
 			      password = passwordField.getText();
-			      System.out.println("PASSWORD : " + password);
+			     // System.out.println("PASSWORD : " + password);
 			      try {
-			    	  System.out.println("Dis is running");
 					dos.writeUTF("L" + username + "-" + password);
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -111,7 +115,7 @@ public class LoginPanel extends JFrame {
 		contentPane.add(passwordField); 
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("E:\\java2\\Multi User Canvas\\resources\\b3.jpg"));
+		lblNewLabel_2.setIcon(new ImageIcon("b3.jpg"));
 		lblNewLabel_2.setBounds(0, 0, 444, 272);
 		contentPane.add(lblNewLabel_2);
 		 

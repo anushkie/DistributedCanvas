@@ -14,6 +14,11 @@ import java.util.Scanner;
 import canvas.Canvas;
 import canvas.GUI;
 
+/**
+ * 
+ * @author anushka
+ *
+ */
 public class ClientMUC {
 
 	private String ipAddress;
@@ -32,6 +37,8 @@ public class ClientMUC {
 
 	LoginPanel loginPanel;
 
+	RegisterPanel registerPanel;
+	
 	GUI gui;
 
 	public ClientMUC(String ipAddress, int portNo) {
@@ -49,7 +56,7 @@ public class ClientMUC {
 		gui = new GUI(dos, dis);
 		loginGui = new LoginGui(dos, dis);
 		loginPanel = new LoginPanel(dos, dis);
-		
+		registerPanel = new RegisterPanel(dos, dis);
 		/*
 		 * client's display screen
 		 */
@@ -71,7 +78,7 @@ public class ClientMUC {
 
 		String messageToPrint = dis.readUTF();
 
-		System.out.println(messageToPrint);
+//		System.out.println(messageToPrint);
 
 		if (messageToPrint.equals("LS")) {
 			System.out.println("LOGIN SUCCESSFUL!");
@@ -79,7 +86,7 @@ public class ClientMUC {
 
 			// Online users
 			String printOnlineUsers = dis.readUTF();
-			System.out.println(printOnlineUsers);
+			//System.out.println(printOnlineUsers);
 			String[] splitString = printOnlineUsers.split("-");
 			for (int i = 0; i < splitString.length; i++) {
 				System.out.println("Users : " + splitString[i] + " ");
@@ -104,7 +111,11 @@ public class ClientMUC {
 			
 		} else if (messageToPrint.equals("RS")) {
 			System.out.println("REGISTRATION SUCCESSFUL!");
-			gui.show();
+			//gui.show();
+			loginGui.initialize();
+			loginGui.frame.setVisible(true);
+			registerPanel.setVisible(false);
+			
 		} else {
 			if (messageToPrint.equals("RFE")) {
 				System.out.println("EMAIL ID ALREADY EXISTS");

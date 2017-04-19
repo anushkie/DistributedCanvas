@@ -8,6 +8,11 @@ import java.sql.Statement;
 import com.mysql.*;
 import com.mysql.jdbc.Connection;
 
+/**
+ * 
+ * @author anushka
+ *
+ */
 public class DatabaseService {
 	
 	private Connection connection;

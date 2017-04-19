@@ -19,6 +19,11 @@ import javax.swing.JComponent;
 
 import client.ClientMUC;
 
+/**
+ * 
+ * @author anushka
+ *
+ */
 public class Canvas extends JComponent {
 
 	// Image in which we're going to draw

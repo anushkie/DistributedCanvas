@@ -25,7 +25,7 @@ public class MessageHandlerMUC implements Runnable{
 				messageToBePrinted = dis.readUTF();
 				if(messageToBePrinted.startsWith("P")) {
 					messageToBePrinted = messageToBePrinted.substring(1);
-					System.out.println(messageToBePrinted);
+					//System.out.println(messageToBePrinted);
 					String[] coordinates = messageToBePrinted.split("#");
 					int x = Integer.parseInt(coordinates[0]);
 					int y = Integer.parseInt(coordinates[1]);
@@ -53,6 +53,8 @@ public class MessageHandlerMUC implements Runnable{
 					}
 					
 					canvas.draw(x,y,xx,yy);
+				} else { 
+					System.out.println(messageToBePrinted);
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

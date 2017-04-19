@@ -55,7 +55,7 @@ public class RegisterPanel extends JFrame {
 	 * Create the frame.
 	 */
 	public RegisterPanel(DataOutputStream dos, DataInputStream dis) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\java2\\Multi User Canvas\\resources\\bkgrnd.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("bkgrnd.jpg"));
 		this.dos = dos;
 		this.dis = dis;
 		
@@ -166,7 +166,7 @@ public class RegisterPanel extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_7 = new JLabel("");
-		lblNewLabel_7.setIcon(new ImageIcon("E:\\java2\\Multi User Canvas\\resources\\register.jpg"));
+		lblNewLabel_7.setIcon(new ImageIcon("register.jpg"));
 		lblNewLabel_7.setBounds(0, 0, 444, 272);
 		contentPane.add(lblNewLabel_7);
 	}

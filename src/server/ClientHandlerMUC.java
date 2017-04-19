@@ -12,10 +12,18 @@ import java.sql.DataTruncation;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+
 import javax.swing.text.html.HTMLDocument.Iterator;
 import canvas.GUI;
 import server.database.DatabaseService;
 import user.UserMUC;
+
+/**
+ * 
+ * @author Anushka
+ *
+ */
 
 public class ClientHandlerMUC implements Runnable {
 
@@ -29,7 +37,7 @@ public class ClientHandlerMUC implements Runnable {
 
 	private DataOutputStream dos;
 	
-	private String userName;
+	private String userName = "";
 
 	private Map<Socket, UserMUC> onlineUsers;
 	
@@ -59,8 +67,10 @@ public class ClientHandlerMUC implements Runnable {
 
 				if (messageRecieved.charAt(0) == 'L') {
 					System.out.println("Its a login messsage");
+					
+					
 
-					String userName;
+					String userName = " ";
 					String password;
 					String[] splitLoginString = messageRecieved.split("-");
 					userName = splitLoginString[0].substring(1);
@@ -75,16 +85,11 @@ public class ClientHandlerMUC implements Runnable {
 						onlineUsers.put(socket, user);
 						
 						String listOfOnlineUsers = "";
-
-						for(Map.Entry<Socket, UserMUC> entry : onlineUsers.entrySet()) {
+						this.userName = userName;
+						dos.writeUTF(onlineUsers.values().stream().map(UserMUC::getUsername).collect(Collectors.joining("-")));
 				
-							listOfOnlineUsers = listOfOnlineUsers + entry.getValue().getUsername();
-							System.out.println("list of users : " + listOfOnlineUsers + "-");
-						}
 						
-						dos.writeUTF(listOfOnlineUsers);
-						
-					} else {
+				} else {
 						dos.writeUTF("LF");
 					}
 
@@ -117,8 +122,8 @@ public class ClientHandlerMUC implements Runnable {
 								databaseService.registerUser(firstName, lastName, username, password, emailId, gender);
 								dos.writeUTF("RS");
 								dos.flush();
-								UserMUC user = new UserMUC(username, password, dis, dos);
-								onlineUsers.put(socket, user);
+								/*UserMUC user = new UserMUC(username, password, dis, dos);
+								onlineUsers.put(socket, user);*/
 							}
 						}
 						
@@ -131,6 +136,7 @@ public class ClientHandlerMUC implements Runnable {
 							for(Map.Entry<Socket, UserMUC> entry : onlineUsers.entrySet()) {
 								if(entry.getKey() != socket) {
 									UserMUC userMUC = entry.getValue();
+								//	String username = userMUC.getUsername();
 									userMUC.getDos().writeUTF(userName + " : " + messageRecieved.substring(1));
 								}
 							}
